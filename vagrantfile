@@ -1,0 +1,13 @@
+Vagrant.configure("2") do |config|
+    config.vm.box = "ubuntu/bionic64"
+  
+    # Define servidor1
+    config.vm.define "servidor1" do |servidor1|
+      servidor1.vm.hostname = "servidor1"
+      servidor1.vm.network "private_network", ip: "192.168.56.8"
+      servidor1.vm.provider "virtualbox" do |vb|
+        vb.memory = "256"
+        vb.cpus = 1
+      end
+    end
+end
